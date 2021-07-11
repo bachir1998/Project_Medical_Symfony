@@ -1,0 +1,139 @@
+{% extends 'espace_personnel/layout.html.twig' %}
+  
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    
+
+   <div class="container" style="width: 50%">
+        {{ form_start(form) }}
+             
+             <div class="form-group"> 
+                {{ form_label(form.prenom, 'Prenom')}}
+                {{ form_widget(form.prenom,{'attr': {'class' : 'form-control'}} )}}
+                
+            </div><br/>
+             <div class="form-group"> 
+                {{ form_label(form.nom, 'Nom')}}
+                {{ form_widget(form.nom,{'attr': {'class' : 'form-control'}} )}}
+               
+            </div><br/>
+             <div class="form-group"> 
+                {{ form_label(form.birthday, 'BirthDate')}}
+                {{ form_widget(form.birthday,{'attr': {'class' : 'form-control', 'type' : 'date'}} )}}
+                
+            </div><br/> 
+             <div class="form-group"> 
+                {{ form_label(form.age, 'Age')}}
+                {{ form_widget(form.age,{'attr': {'class' : 'form-control', 'min' : '10', 'max' : '100'}} )}}
+                
+            </div><br/>    
+            <div class="form-group"> 
+                {{ form_label(form.genre, 'Genre')}}
+                {{ form_widget(form.genre,{'attr': {'class' : 'form-control'}} )}}
+               
+            </div><br/>
+            <div class="form-group"> 
+                {{ form_label(form.atmp, 'AT / MP')}}
+                {{ form_widget(form.atmp,{'attr': {'class' : 'form-control'}} )}}
+               
+            </div><br/>
+
+            <div class="form-group"> 
+                {{ form_label(form.epaule, 'Epaule étudié')}}
+                {{ form_widget(form.epaule,{'attr': {'class' : 'form-control', 'placeholder' : 'Gauche ou Droite ?'}} )}}
+               
+            </div><br/>
+            <div class="form-group"> 
+                {{ form_label(form.centre, 'Centre d\'inclusion')}}
+                {{ form_widget(form.centre,{'attr': {'class' : 'form-control'}} )}}
+                
+            </div><br/> 
+            <div class="form-group"> 
+                {{ form_label(form.diabete, 'Diabete')}}
+                {{ form_widget(form.diabete,{'attr': {'class' : 'form-control'}} )}}
+                
+            </div><br/> 
+            <div class="form-group"> 
+                {{ form_label(form.tabac, 'Tabac')}}
+                {{ form_widget(form.tabac,{'attr': {'class' : 'form-control'}} )}}
+                
+            </div><br/> 
+
+            <div class="form-group"> 
+                {{ form_label(form.pathologie, 'Pathologie')}}
+                {{ form_widget(form.pathologie,{'attr': {'class' : 'form-control'}} )}}
+               
+            </div><br/>
+            <div class="form-group"> 
+                {{ form_label(form.retraite, 'Retraite : Type')}}
+                {{ form_widget(form.retraite,{'attr': {'class' : 'form-control'}} )}}
+                
+            </div><br/> 
+
+             <div class="form-group"> 
+                {{ form_label(form.imc, 'IMC')}}
+                {{ form_widget(form.imc,{'attr': {'class' : 'form-control','step':'.01'}} )}}
+               
+            </div><br/>
+
+            <div class="form-group"> 
+                {{ form_label(form.images, 'Images')}}
+                {{ form_widget(form.images,{'attr': {'class' : 'form-control'}} )}}
+               
+            </div><br/>
+
+            {# Vérifier si la route est edit on affiche les images#}
+            {% if app.request.attributes.get('_route') == 'patient_edit' %}
+
+              <div class="container marketing">
+                  <div class="row">
+                    {% for image in patient.images %}
+
+                        <div class="col-lg-6">  
+                        
+                                <img src="{{ asset('/uploads/' ~ image.name) }}"   alt="Image"  width="100%" height="200">
+                                <a style="margin: 2%;margin-bottom:8%" class="btn btn-danger" href="{{ path('patient_delete_image', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+                            
+
+                        </div>
+
+                
+                        
+                        
+                        
+
+                    {% endfor %}
+                        <br/><br/>
+                   
+                  </div>
+                </div>  
+                 <button type="submit" class="btn btn-lg btn-primary">Modifier</button>
+            {% else %}
+                 <br/><br/>
+                   <button type="submit" class="btn btn-lg btn-primary">Ajouter</button>       
+            {% endif %}
+
+            {# Vérifier si la route est show on affiche les images#}
+           
+           
+           
+        
+           
+        {{ form_end(form) }}
+    </div>    
+{% endblock %}
+
+
+
+
+
+
+
+
+

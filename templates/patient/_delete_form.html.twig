@@ -1,0 +1,17 @@
+<div class="container" style="width: 90%;margin-top:50px"> 
+    {% for message in app.flashes('danger') %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+   {% endfor %}
+
+    {% for message in app.flashes('success') %}
+         <div class="alert alert-success">
+             {{ message }}
+        </div>
+    {% endfor %}
+  </div>
+<form method="post" action="{{ path('patient_delete', {'id': patient.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ patient.id) }}">
+    <button class="btn btn-danger">Delete</button>
+</form>

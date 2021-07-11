@@ -1,0 +1,126 @@
+{% extends 'espace_personnel/layout.html.twig' %}
+
+{% block title %}Patient{% endblock %}
+
+{% block body %}
+    
+  <div class="container" style="width: 90%;margin-top:50px">
+    <h1>Patient : {{ patient.prenom}} {{patient.nom}}</h1>
+
+    <table class="table">
+       <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ patient.id }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ patient.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ patient.nom }}</td>
+            </tr>
+             <tr>
+                <th>BirthDate</th>
+                <td>{{ patient.birthday | date('d/m/Y') }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ patient.age }}</td>
+            </tr>
+             <tr>
+                <th>Epaule étudiée</th>
+                <td>{{ patient.epaule }}</td>
+            </tr>
+             <tr>
+                <th>Centre d'inclusion</th>
+                <td>{{ patient.centre }}</td>
+            </tr>
+             <tr>
+                <th>Diabete</th>
+                <td>{{ patient.diabete }}</td>
+            </tr>
+             <tr>
+                <th>Tabac</th>
+                <td>{{ patient.tabac }}</td>
+            </tr>
+            <tr>
+                <th>Pathologie</th>
+                <td>{{ patient.pathologie }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ patient.genre }}</td>
+            </tr>
+            <tr>
+                <th>IMC</th>
+                <td>{{ patient.imc }}</td>
+            </tr>
+            <tr>
+                <th>AT / MP</th>
+                <td>{{ patient.atmp }}</td>
+            </tr>
+             <tr>
+                <th>Retraite : Type</th>
+                <td>{{ patient.retraite }}</td>
+            </tr>
+           
+
+                
+               
+            
+        </tbody>
+      
+      
+      
+    </table> 
+    <br/><br/>
+    <h4 style="text-align:center;color: blue;text-decoration:underline"> Images descriptives de la maladie du patient</h4>
+    <br/>
+    
+    <div class="container marketing">
+        <div class="row">
+            {% for image in patient.images %}
+
+                            <div class="col-lg-4 " >
+                                <div class="card">
+                                    <img class="bd-placeholder-img card-img-top" src="{{ asset('/uploads/' ~ image.name) }}" width="100%" height="200"/>
+
+                                </div>
+                            </div>
+                    
+            {% endfor %}
+            
+        </div>             
+                   
+    </div>
+                            
+                            
+                            
+
+            
+
+     <a class="btn btn-dark" href="{{ path('user_patients') }}">back to list</a>
+     <br/><br/>
+     {{ include('patient/_delete_form.html.twig') }}
+
+    
+   </div> 
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

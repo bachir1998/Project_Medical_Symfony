@@ -1,0 +1,60 @@
+{% extends 'espace_personnel/layout.html.twig' %}
+
+{% block title %}Liste des médecins{% endblock %}
+
+{% block body %}
+  <div class="container" style="width: 90%;margin-top:50px">
+     {% for message in app.flashes('danger') %}
+                        <div class="alert alert-danger">
+                            {{ message}}
+                        </div>
+   {% endfor %}
+
+    {% for message in app.flashes('success') %}
+         <div class="alert alert-success">
+             {{ message }}
+        </div>
+    {% endfor %}
+    <br/><br/>
+    <h1>Liste des médecins</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>Voir</th>
+                <th>Update </th>
+              
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.password }}</td>
+                <td>
+                    <a class="btn btn-warning" style="margin-bottom:5px" href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                  
+                </td>
+                <td>
+                    
+                    <a class="btn btn-primary" href="{{ path('user_edit_role', {'id': user.id}) }}">edit</a>
+                </td>
+              
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+
+    
+   </div> 
+{% endblock %}

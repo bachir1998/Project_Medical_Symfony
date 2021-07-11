@@ -1,0 +1,13 @@
+{% extends 'espace_personnel/layout.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+ <div class="container" style="width: 50%;margin-top:50px">
+    <h1>Create new User</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    <a href="{{ path('user_index') }}">back to list</a>
+  /div>  
+{% endblock %}

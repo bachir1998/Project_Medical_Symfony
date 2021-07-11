@@ -1,0 +1,59 @@
+{% extends 'espace_personnel/layout.html.twig' %}
+  
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+     <h1 style="margin-top:50px;margin-bottom:50px;text-align:center">Register Doctor</h1>
+
+   <div class="container" style="width: 50%">
+        {{ form_start(registrationForm,{'attr' : {'novalidate':
+                'novalidate' }}) }}
+             <div class="form-group"> 
+                {{ form_label(registrationForm.prenom, 'Prenom')}}
+                {{ form_widget(registrationForm.prenom,{'attr': {'class' : 'form-control'}} )}}
+                {{  form_errors(registrationForm.prenom)}}
+            </div>
+            <br/>
+            <br/>
+             <div class="form-group"> 
+                {{ form_label(registrationForm.nom, 'Nom')}}
+                {{ form_widget(registrationForm.nom,{'attr': {'class' : 'form-control'}} )}}
+                {{  form_errors(registrationForm.nom)}}
+            </div>
+            <br/>
+            <br/>
+             <div class="form-group"> 
+                {{ form_label(registrationForm.age, 'Age')}}
+                {{ form_widget(registrationForm.age,{'attr': {'class' : 'form-control'}} )}}
+                {{  form_errors(registrationForm.age)}}
+            </div>  
+            <br/>
+            <br/>  
+            <div class="form-group"> 
+                {{ form_label(registrationForm.email, 'Email')}}
+                {{ form_widget(registrationForm.email,{'attr': {'class' : 'form-control'}} )}}
+                {{  form_errors(registrationForm.email)}}
+            </div>
+            <br/>
+            <br/>
+            <div class="form-group"> 
+                {{ form_label(registrationForm.plainPassword, 'Password')}}
+                {{ form_widget(registrationForm.plainPassword,{'attr': {'class' : 'form-control'}} )}}
+                {{  form_errors(registrationForm.plainPassword)}}
+            </div>
+            <br/>
+            <br/>
+        
+            <div class="form-group"> {{ form_row(registrationForm.agreeTerms) }} </div>
+            <br/>
+            <br/>
+        
+            <button type="submit" class="btn btn-lg btn-primary">Register</button>
+        {{ form_end(registrationForm) }}
+    </div>    
+{% endblock %}

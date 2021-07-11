@@ -1,0 +1,77 @@
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+    <main>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+           
+                    <!-- LES Slides -->
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                     
+                <div class="carousel-inner">
+                    
+                    <!-- Premier Slide -->
+                    <div class="carousel-item active">
+                        <img src="{{ asset('images/sante6.png') }}" alt="#"/> 
+                    </div>
+
+                   
+
+                </div>
+
+               
+
+            </div> <!-- fermeture mycarousel-->
+
+
+            <div class="container marketing">
+
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img class="bd-placeholder-img card-img-top" src="{{ asset('images/sante9.png') }}" width="100%" height="200"/>
+
+                            <div class="card-body">
+                            <h5 class="card-title">Un conseil pour rester en bonne santé :</h5>
+                            <p class="card-text"> Il faut avoir des apports suffisants en vitamines, protéines, minéraux et autres nutriments essentiels au bon fonctionnement de l’organisme.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img class="bd-placeholder-img card-img-top" src="{{ asset('images/sante10.png') }}" width="100%" height="200"/>
+
+                            <div class="card-body">
+                            <h5 class="card-title">Card title that wraps to a new line</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img class="bd-placeholder-img card-img-top" src="{{ asset('images/sante3.png') }}" width="100%" height="200"/> 
+
+                            <div class="card-body">
+                            <h5 class="card-title">Card title that wraps to a new line</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div> <!-- fermeture marketing--> 
+
+            <!--  <hr class="featurette-divider">START THE FEATURETTES -->
+
+           
+    <main>
+{% endblock %} 

@@ -1,0 +1,31 @@
+{% block title %}{% endblock %}
+
+{% block body %}
+   <div class="container" style="width: 90%;margin-top:50px"> 
+    {% for message in app.flashes('danger') %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+   {% endfor %}
+
+    {% for message in app.flashes('success') %}
+         <div class="alert alert-success">
+             {{ message }}
+        </div>
+    {% endfor %}
+  </div>
+  <br/><br/>  
+     <h1 style="margin-top:50px;margin-bottom:50px;text-align:center">Edit Patient</h1>
+
+    {{ include('patient/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}
+
+
+{% block javascripts %}
+
+   <script src="{{ asset('js/images.js')}}"></script>
+
+{% endblock %}
+
+

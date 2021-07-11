@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="">
+            <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+            <meta name="generator" content="Hugo 0.83.1">
+            <title>{% block title %}Welcome!{% endblock %}</title>
+            <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+
+            <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+            <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+            
+ 
+            <!-- Bootstrap core CSS -->
+
+        <link rel="stylesheet" href="{{ asset('css/bootstrapmin.css')}}">
+       <link rel="stylesheet" href="{{ asset('css/app.scss')}}">
+     
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+                }
+            }
+        </style>
+
+        <link rel="stylesheet" href="{{ asset('css/carousel.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/footer.css')}}">
+
+            
+    </head>
+       
+     
+    </head>
+    <body>
+                                      <!--  NAVBAR -->
+      <header>
+        
+        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img style="width: 60px;height:40px;"src="{{ asset('images/logo1.png') }}" alt="#"/></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              
+                </ul>
+                <form class="d-flex">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a style="font-size:120%;margin-right:25px" class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
+                        </li>
+                        
+                         {% block header_links %}
+                            {% if app.user %}
+                               <li class="nav-item">
+                                 <a style="font-size:120%;margin-right:15px;color:green" class="nav-link" href="{{ path('home_user') }}">Mon espace personnel</a>
+                                </li>
+                               <li><a class="btn btn-danger" href="{{ path('app_logout') }}">Logout</a></li>
+                            {% else %}
+                                <li><a class="btn btn-success" href="{{ path('app_login') }}">Login</a></li>
+                                    
+                            {% endif %}
+                             
+                         {% endblock %}   
+                        
+                    </ul>
+               
+                </form>
+            </div>
+            </div>
+        </nav>
+        </header>
+        {% block body %}
+        
+        
+        {% endblock %}
+
+        <main>
+
+
+            
+            <!-- FOOTER -->
+
+            <footer id="footer" class="foot">
+                <div class="footer-top  footer-default">
+                    <div class="container">
+                        <div class="row">
+                            
+                            <div class="col-lg-4 col-md-6 footer-info"> 
+                                <h3 style="animation: flash 1.4s linear infinite">Site Chambray les tours</h3>
+                                <p> ________ ________ ________ ________ _________
+                                    ________  _______ _________  _______  _______
+                                    ________ _________ ___________</p>
+                            </div>
+                           
+                            <div style= "margin-top:10px" class="col-lg-2 col-md-6 footer-links">
+                                <h4> Liens utiles <h4>
+                                    <ul>
+                                        <li><a href="#">Link</a></li>
+                                        <li><a href="#">Link</a></li>
+                                        <li><a href="#">Link</a></li>
+                                        <li><a href="#">Link</a></li>
+                                        <li><a href="#">Link</a></li>
+                                    </ul>
+                            </div>
+                       
+                            <div style= "margin-top:10px" class="col-lg-3 col-md-6 footer-contact"> 
+                                <h4> Contactez-nous</h4>
+                                <p>
+                                    Hann Bel Air   Rue:6 <br/>
+                                    Hann,  Dakar<br/>
+                                    Sénégal<br/>
+                                    <strong>Téléphone:</strong>+221 78 130 45 98<br/> 
+                                    <strong>Em@il:</strong>BAM@gmail.com<br/>
+                                </p>
+                    
+                                <div class="social-links">
+                                    <a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#" class="twitter"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="twitter"><i class="fa fa-instagram"></i></a> 
+                                    <a href="#" class="twitter"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#" class="twitter"><i class="fa fa-linkedin"></i></a>      
+                                </div> 
+                            </div>  
+
+                            <div style= "margin-top:10px" class="col-lg-3 col-md-6 footer-newsletter">
+                                <h4>Our Nemsletter</h4>
+                                <p> ________ ________ ________ ________ _________
+                                ________  _______ _________  _______  _______
+                                ________ _________ ___________</p>
+                                <form accept="" mthod="post">
+                                    <input type="email"  name="email"/><input type="submit" value="s'abonner"/>
+                                </form>
+                            </div>
+                
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="container">
+                    <div class="copyright">
+                        &copy; Copyright<strong>WebsiteName</strong>. Tout Droits Reservés
+                    </div>
+                    <div class="credits">
+                        Designed by <a href="#">WebsiteName</a>
+                    </div>
+                </div>
+            </footer>
+            <!-- <footer class="container">
+                    <p class="float-end"><a href="#">Back to top</a></p>
+                    <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+                </footer>-->
+        </main>
+
+        <script src="{{ asset('css/bootstrapjs.js')}}"></script>
+
+
+
+
+       
+            
+           
+          
+    </body>
+</html>

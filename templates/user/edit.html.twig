@@ -1,0 +1,15 @@
+{% extends 'espace_personnel/layout.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+<div class="container" style="width: 70%;margin-top:50px">
+    <h4>Modifier l'utilisateur {{ user.email}}</h4>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('user_index') }}">back to list</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+ </div>   
+{% endblock %}
