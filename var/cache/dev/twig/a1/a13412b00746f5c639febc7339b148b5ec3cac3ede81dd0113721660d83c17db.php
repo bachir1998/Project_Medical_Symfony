@@ -119,43 +119,78 @@ class __TwigTemplate_7c5b14533d0565ac0e2d0e57be0d435c65081e655637329346c6417373a
             echo "    <h1>Liste des patients</h1>
     <table class=\"table\">
         <thead>
-            <tr>
+             <tr>
                 <th>Id</th>
                 <th>Prenom</th>
                 <th>Nom</th>
+                <th>BirthDate</th>
                 <th>Age</th>
+                <th>Centre D'inclusion</th>
+                <th>Epaule étudiée</th>
+                <th>Diabete</th>
+                <th>Tabac</th>
                 <th>Pathologie</th>
-              
+                <th>Genre</th>
+                <th>Retraite : Type</th>
+               
               
             </tr>
         </thead>
         <tbody>
         ";
-            // line 36
+            // line 43
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["patients"]) || array_key_exists("patients", $context) ? $context["patients"] : (function () { throw new RuntimeError('Variable "patients" does not exist.', 36, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["patients"]) || array_key_exists("patients", $context) ? $context["patients"] : (function () { throw new RuntimeError('Variable "patients" does not exist.', 43, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["patient"]) {
-                // line 37
+                // line 44
                 echo "            <tr>
                 <td>";
-                // line 38
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "id", [], "any", false, false, false, 38), "html", null, true);
+                // line 45
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "id", [], "any", false, false, false, 45), "html", null, true);
                 echo "</td>
                 <td>";
-                // line 39
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "prenom", [], "any", false, false, false, 39), "html", null, true);
+                // line 46
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "prenom", [], "any", false, false, false, 46), "html", null, true);
                 echo "</td>
                 <td>";
-                // line 40
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "nom", [], "any", false, false, false, 40), "html", null, true);
+                // line 47
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "nom", [], "any", false, false, false, 47), "html", null, true);
                 echo "</td>
                 <td>";
-                // line 41
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "age", [], "any", false, false, false, 41), "html", null, true);
+                // line 48
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "birthday", [], "any", false, false, false, 48), "d/m/Y"), "html", null, true);
                 echo "</td>
                 <td>";
-                // line 42
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "pathologie", [], "any", false, false, false, 42), "html", null, true);
+                // line 49
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "age", [], "any", false, false, false, 49), "html", null, true);
+                echo "</td>
+                <td>";
+                // line 50
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "centre", [], "any", false, false, false, 50), "html", null, true);
+                echo "</td>
+                <td>";
+                // line 51
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "epaule", [], "any", false, false, false, 51), "html", null, true);
+                echo "</td>
+                <td>";
+                // line 52
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "diabete", [], "any", false, false, false, 52), "html", null, true);
+                echo "</td>
+                <td>";
+                // line 53
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "tabac", [], "any", false, false, false, 53), "html", null, true);
+                echo "</td>
+                <td>";
+                // line 54
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "pathologie", [], "any", false, false, false, 54), "html", null, true);
+                echo "</td>
+                <td>";
+                // line 55
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "genre", [], "any", false, false, false, 55), "html", null, true);
+                echo "</td>
+                <td>";
+                // line 56
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["patient"], "retraite", [], "any", false, false, false, 56), "html", null, true);
                 echo "</td>
                
               
@@ -165,16 +200,16 @@ class __TwigTemplate_7c5b14533d0565ac0e2d0e57be0d435c65081e655637329346c6417373a
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['patient'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 47
+            // line 61
             echo "        </tbody>
     </table> 
    ";
         } else {
-            // line 50
+            // line 64
             echo "                <p>no records found</p>
     ";
         }
-        // line 51
+        // line 65
         echo "     
    
    </div> 
@@ -199,7 +234,7 @@ class __TwigTemplate_7c5b14533d0565ac0e2d0e57be0d435c65081e655637329346c6417373a
 
     public function getDebugInfo()
     {
-        return array (  178 => 51,  174 => 50,  169 => 47,  158 => 42,  154 => 41,  150 => 40,  146 => 39,  142 => 38,  139 => 37,  135 => 36,  119 => 22,  117 => 21,  111 => 18,  105 => 15,  101 => 14,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  213 => 65,  209 => 64,  204 => 61,  193 => 56,  189 => 55,  185 => 54,  181 => 53,  177 => 52,  173 => 51,  169 => 50,  165 => 49,  161 => 48,  157 => 47,  153 => 46,  149 => 45,  146 => 44,  142 => 43,  119 => 22,  117 => 21,  111 => 18,  105 => 15,  101 => 14,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -228,13 +263,20 @@ class __TwigTemplate_7c5b14533d0565ac0e2d0e57be0d435c65081e655637329346c6417373a
     <h1>Liste des patients</h1>
     <table class=\"table\">
         <thead>
-            <tr>
+             <tr>
                 <th>Id</th>
                 <th>Prenom</th>
                 <th>Nom</th>
+                <th>BirthDate</th>
                 <th>Age</th>
+                <th>Centre D'inclusion</th>
+                <th>Epaule étudiée</th>
+                <th>Diabete</th>
+                <th>Tabac</th>
                 <th>Pathologie</th>
-              
+                <th>Genre</th>
+                <th>Retraite : Type</th>
+               
               
             </tr>
         </thead>
@@ -244,8 +286,15 @@ class __TwigTemplate_7c5b14533d0565ac0e2d0e57be0d435c65081e655637329346c6417373a
                 <td>{{ patient.id }}</td>
                 <td>{{ patient.prenom }}</td>
                 <td>{{ patient.nom }}</td>
+                <td>{{ patient.birthday | date('d/m/Y')}}</td>
                 <td>{{ patient.age }}</td>
+                <td>{{ patient.centre }}</td>
+                <td>{{ patient.epaule }}</td>
+                <td>{{ patient.diabete }}</td>
+                <td>{{ patient.tabac }}</td>
                 <td>{{ patient.pathologie }}</td>
+                <td>{{ patient.genre }}</td>
+                <td>{{ patient.retraite }}</td>
                
               
             </tr>

@@ -374,13 +374,6 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\RegistrationController"/>
       </call>
     </service>
-    <service id="App\Controller\SearchController" class="App\Controller\SearchController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\SearchController"/>
-      </call>
-    </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -408,9 +401,6 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
-    </service>
-    <service id="App\Form\SearchPatientType" class="App\Form\SearchPatientType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\UserAdminType" class="App\Form\UserAdminType" autowire="true" autoconfigure="true">
@@ -1021,7 +1011,6 @@
         <argument>App\Form\PropertySearchPathologie</argument>
         <argument>App\Form\PropertySearchSexe</argument>
         <argument>App\Form\RegistrationFormType</argument>
-        <argument>App\Form\SearchPatientType</argument>
         <argument>App\Form\UserAdminType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1429,7 +1418,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.4guNsFr"/>
+      <argument type="service" id=".service_locator.ZJrH__Q"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5829,9 +5818,6 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SearchController" class="App\Controller\SearchController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SearchController" class="App\Controller\SearchController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\SearchController" class="App\Controller\SearchController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5848,8 +5834,6 @@
     <service id=".abstract.instanceof.App\Form\PropertySearchSexe" class="App\Form\PropertySearchSexe" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchPatientType" class="App\Form\SearchPatientType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\SearchPatientType" class="App\Form\SearchPatientType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserAdminType" class="App\Form\UserAdminType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserAdminType" class="App\Form\UserAdminType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
@@ -6194,12 +6178,6 @@
         <argument key="passwordEncoder" type="service_closure" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
-    <service id=".service_locator.XupNM.k" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="patientRepository" type="service_closure" id="App\Repository\PatientRepository"/>
-      </argument>
-    </service>
     <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6218,7 +6196,13 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.ch4Jgvl.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.DhwZj0n" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.XupNM.k" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="patientRepository" type="service_closure" id="App\Repository\PatientRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.4ioz4I2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\PatientController::delete" type="service_closure" id=".service_locator.mk9shxU"/>
@@ -6226,7 +6210,6 @@
         <argument key="App\Controller\PatientController::edit" type="service_closure" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\PatientController::show" type="service_closure" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.IlsK1Cj"/>
-        <argument key="App\Controller\SearchController::searchPatient" type="service_closure" id=".service_locator.XupNM.k"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.ch4Jgvl"/>
@@ -6245,7 +6228,6 @@
         <argument key="App\Controller\PatientController:edit" type="service_closure" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\PatientController:show" type="service_closure" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.IlsK1Cj"/>
-        <argument key="App\Controller\SearchController:searchPatient" type="service_closure" id=".service_locator.XupNM.k"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.ch4Jgvl"/>
         <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.ch4Jgvl"/>
@@ -6317,7 +6299,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.4guNsFr" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ZJrH__Q" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\PatientType" type="service_closure" id="App\Form\PatientType"/>
@@ -6325,7 +6307,6 @@
         <argument key="App\Form\PropertySearchPathologie" type="service_closure" id="App\Form\PropertySearchPathologie"/>
         <argument key="App\Form\PropertySearchSexe" type="service_closure" id="App\Form\PropertySearchSexe"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
-        <argument key="App\Form\SearchPatientType" type="service_closure" id="App\Form\SearchPatientType"/>
         <argument key="App\Form\UserAdminType" type="service_closure" id="App\Form\UserAdminType"/>
         <argument key="App\Form\UserType" type="service_closure" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
@@ -6611,12 +6592,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.W9y3dzm" method="withContext"/>
     </service>
-    <service id=".service_locator.W9y3dzm.App\Controller\SearchController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\SearchController"/>
-      <argument>App\Controller\SearchController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.W9y3dzm" method="withContext"/>
-    </service>
     <service id=".service_locator.W9y3dzm.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
@@ -6743,12 +6718,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.DhwZj0n"/>
+      <argument type="service" id=".service_locator.4ioz4I2"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.DhwZj0n"/>
+      <argument type="service" id=".service_locator.4ioz4I2"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7679,7 +7654,7 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.DhwZj0n"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.4ioz4I2"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7723,10 +7698,10 @@
     <service id=".service_locator.gU1RRJi" alias=".service_locator.mk9shxU"/>
     <service id=".service_locator.j_KTIxS" alias=".service_locator.XBdMERO"/>
     <service id=".service_locator.bzId2l1" alias=".service_locator.IlsK1Cj"/>
-    <service id=".service_locator.GIAnriR" alias=".service_locator.XupNM.k"/>
     <service id=".service_locator.kXCVHeG" alias=".service_locator.UDgw6Ol"/>
     <service id=".service_locator.8PQa8Mp" alias=".service_locator..Ae5NXw"/>
     <service id=".service_locator.NFoOWn0" alias=".service_locator.ch4Jgvl"/>
+    <service id=".service_locator.GIAnriR" alias=".service_locator.XupNM.k"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.anofQPJ"/>
     <service id=".service_locator.NK827YO" alias=".service_locator.W9y3dzm"/>
   </services>

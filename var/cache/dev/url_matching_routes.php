@@ -21,7 +21,6 @@ return [
         '/espace_personnel/patient/genre' => [[['_route' => 'patient_index_sexe', '_controller' => 'App\\Controller\\PatientController::indexSexe'], null, null, null, true, false, null]],
         '/espace_personnel/patient/new' => [[['_route' => 'patient_new', '_controller' => 'App\\Controller\\PatientController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/espace_personnel/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
-        '/espace_personnel/search' => [[['_route' => 'search_patient', '_controller' => 'App\\Controller\\SearchController::searchPatient'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/espace_personnel/listUser' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, false, false, null]],

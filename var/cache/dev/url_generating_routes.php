@@ -26,7 +26,6 @@ return [
     'patient_delete' => [['id'], ['_controller' => 'App\\Controller\\PatientController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/espace_personnel/patient']], [], []],
     'patient_delete_image' => [['id'], ['_controller' => 'App\\Controller\\PatientController::deleteImage'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/espace_personnel/patient/supprime/image']], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/espace_personnel/register']], [], []],
-    'search_patient' => [[], ['_controller' => 'App\\Controller\\SearchController::searchPatient'], [], [['text', '/espace_personnel/search']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'user_index' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/espace_personnel/listUser']], [], []],
